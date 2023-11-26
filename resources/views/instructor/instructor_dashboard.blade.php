@@ -8,5 +8,6 @@
 </head>
 <body>
     <h1>Instructor Dashboard</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel quam distinctio, expedita quis dignissimos unde, provident quae harum quo ipsum debitis ex commodi repellendus sequi perferendis iste hic eius dolorum.</p>
 </body>
 </html>

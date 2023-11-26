@@ -11,7 +11,7 @@ class AdminController extends Controller
     public function AdminDashboard(){
 
         return view('admin.index');
-    }   //End Method
+    }       //End Method
 
 
 }

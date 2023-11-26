@@ -47,7 +47,7 @@ class UserTableSeeder extends Seeder
                 'role' => 'user',
                 'status' => '1',
 
-            ],
+            ]
 
 
 
