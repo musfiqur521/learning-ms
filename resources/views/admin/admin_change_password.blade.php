@@ -51,7 +51,7 @@
                 </div>
     <div class="col-lg-8">
         <div class="card">
-            <form method="POST" action="{{ route('admin.profile.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('admin.password.update') }}" enctype="multipart/form-data">
                 @csrf
             <div class="card-body">
                 <div class="row mb-3">
@@ -96,7 +96,7 @@
 
                         {{-- Invalid Password Message  --}}
 
-                        <input type="password" name="confirm_new_password" class="form-control" id="confirm_new_password"/>
+                        <input type="password" name="new_password_confirmation" class="form-control" id="new_password_confirmation"/>
 
                         {{-- Invalid Password Message END --}}
 
