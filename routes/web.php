@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\UserController;
 
@@ -63,12 +64,27 @@ Route::get('/instructor/change/password', [InstructorController::class, 'Instruc
 
 Route::post('/instructor/password/update', [InstructorController::class, 'InstructorPasswordUpdate'])->name('instructor.password.update');
 
+### Category All Route ###
+
+Route::controller(CategoryController::class)->group(function(){
+
+    Route::get('/all/category','AllCategory')->name('all.category');
+
+
+});
+
+
+
+
+
+
+
 }); //// End Instructor Group Middleware
 
 Route::get('/instructor/login', [InstructorController::class, 'InstructorLogin'])->name('instructor.login');
     ############################################################################################################################################
 
-// Route::get('/user/dashboard', [UserController::class, 'UserDashboard'])->name('user.dashboard');
+
 
 
 
