@@ -60,7 +60,7 @@ class AdminController extends Controller
         );
 
         return redirect()->back()->with($notification);
-    }
+    }   //End Method
 
     public function AdminChangePassword(){
 
