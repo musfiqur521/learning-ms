@@ -43,6 +43,15 @@ Route::get('/admin/change/password', [AdminController::class, 'AdminChangePasswo
 
 Route::post('/admin/change/update', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
 
+### Category All Route ###
+
+Route::controller(CategoryController::class)->group(function(){
+
+    Route::get('/all/category','AllCategory')->name('all.category');
+
+
+});
+
 
 }); ///End Admin Group Middleware
 
@@ -64,26 +73,13 @@ Route::get('/instructor/change/password', [InstructorController::class, 'Instruc
 
 Route::post('/instructor/password/update', [InstructorController::class, 'InstructorPasswordUpdate'])->name('instructor.password.update');
 
-### Category All Route ###
-
-Route::controller(CategoryController::class)->group(function(){
-
-    Route::get('/all/category','AllCategory')->name('all.category');
-
-
-});
-
-
-
-
 
 
 
 }); //// End Instructor Group Middleware
 
 Route::get('/instructor/login', [InstructorController::class, 'InstructorLogin'])->name('instructor.login');
-    ############################################################################################################################################
-
+    ###################################################
 
 
 
