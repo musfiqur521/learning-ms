@@ -48,6 +48,8 @@ Route::post('/admin/change/update', [AdminController::class, 'AdminPasswordUpdat
 Route::controller(CategoryController::class)->group(function(){
 
     Route::get('/all/category','AllCategory')->name('all.category');
+    
+    Route::get('/add/category','AddCategory')->name('add.category');
 
 
 });
