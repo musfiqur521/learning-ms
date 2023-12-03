@@ -120,4 +120,9 @@ class CategoryController extends Controller
 
     }// End Method
 
+    public function AddSubCategory(){
+        $category = Category::latest()->get();
+        return view('admin.backend.subcategory.add_subcategory',compact('category'));
+    }// End Method
+
 }
