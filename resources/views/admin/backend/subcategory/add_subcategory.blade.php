@@ -30,12 +30,14 @@
 
                 <div class="form-group col-md-6">
                     <label for="input1" class="form-label">Category Name</label>
-                    <select class="form-select mb-3" aria-label="Default select example">
+                    <select name="category_id" class="form-select mb-3" aria-label="Default select example">
 
-                        <option selected="">Open this select menu</option>
-                        <option value="1"></option>
-                        <option value="2"></option>
-                        <option value="3"></option>
+                        <option selected="" disabled>Open this select menu</option>
+                        @foreach ($category as $cat)
+
+
+                        <option value="{{ $cat->id }}">{{ $cat->category_name }}</option>
+                        @endforeach
 
                     </select>
 
@@ -43,7 +45,7 @@
 
                 <div class="form-group col-md-6">
                     <label for="input1" class="form-label">SubCategory Name</label>
-                    <input type="text" name="category_name" class="form-control" id="input1">
+                    <input type="text" name="subcategory_name" class="form-control" id="input1">
                 </div>
 
 
@@ -63,20 +65,20 @@
     $(document).ready(function (){
         $('#myForm').validate({
             rules: {
-                category_name: {
+                subcategory_name: {
                     required : true,
                 },
-                image: {
+                category_id: {
                     required : true,
                 },
 
             },
             messages :{
                 category_name: {
-                    required : 'Please Enter Category Name',
+                    required : 'Please Enter SubCategory Name',
                 },
                 image: {
-                    required : 'Please Select Category Image',
+                    required : 'Please Select Category Name',
                 },
 
 
