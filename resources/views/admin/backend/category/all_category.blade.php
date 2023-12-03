@@ -49,7 +49,8 @@
 
                             <td>
                                 <a href="{{ route('edit.category',$item->id) }}" class="btn btn-info px-5">Edit</a>
-                                <a href="" class="btn btn-danger px-5">Delete</a>
+
+                                <a href="{{ route('delete.category',$item->id) }}" class="btn btn-danger px-5" id="delete">Delete</a>
                             </td>
                         </tr>
                         @endforeach
