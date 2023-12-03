@@ -71,7 +71,7 @@ Route::controller(CategoryController::class)->group(function(){
 
     Route::post('/store/subcategory','StoreSubCategory')->name('store.subcategory');
 
-    Route::get('/edit/category/{id}','EditCategory')->name('edit.category');
+    Route::get('/edit/subcategory/{id}','EditSubCategory')->name('edit.subcategory');
 
     Route::post('/update/category','UpdateCategory')->name('update.category');
 

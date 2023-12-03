@@ -142,4 +142,11 @@ class CategoryController extends Controller
 
     }// End Method
 
+    public function EditSubCategory($id){
+
+        $category = Category::latest()->get();
+        $subcategory = SubCategory::find($id);
+        return view('admin.backend.subcategory.edit_subcategory',compact('category','subcategory'));
+    }// End Method
+
 }
