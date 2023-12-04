@@ -73,7 +73,7 @@ Route::controller(CategoryController::class)->group(function(){
 
     Route::get('/edit/subcategory/{id}','EditSubCategory')->name('edit.subcategory');
 
-    Route::post('/update/Subcategory','UpdateSubCategory')->name('update.category');
+    Route::post('/update/Subcategory','UpdateSubCategory')->name('update.subcategory');
 
     Route::get('/delete/category/{id}','DeleteCategory')->name('delete.category');
 
@@ -83,6 +83,8 @@ Route::controller(CategoryController::class)->group(function(){
 }); ///End Admin Group Middleware
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
+
+Route::get('/become/instructor', [AdminController::class, 'BecomeInstructor'])->name('become.instructor');
 
 ///// Instructor Group Middleware #################################
 

@@ -25,7 +25,7 @@
         <div class="card-body p-4">
             <h5 class="mb-4">Edit SubCategory</h5>
 
-            <form id="myForm" action="{{ route('update.category') }}" method="post" class="row g-3" enctype="multipart/form-data">
+            <form id="myForm" action="{{ route('update.subcategory') }}" method="post" class="row g-3" enctype="multipart/form-data">
                 @csrf
 
                 <input type="hidden" name="id" value="{{ $subcategory->id }}">
