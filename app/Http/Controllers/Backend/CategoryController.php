@@ -37,7 +37,7 @@ class CategoryController extends Controller
         ]);
 
         $notification = array(
-          'message' => 'Category Added Successfully',
+        'message' => 'Category Added Successfully',
             'alert-type' =>'success'
         );
 
@@ -68,7 +68,7 @@ class CategoryController extends Controller
             ]);
 
             $notification = array(
-              'message' => 'Category Updated with Image Successfully',
+            'message' => 'Category Updated with Image Successfully',
                 'alert-type' =>'success'
             );
 
@@ -84,7 +84,7 @@ class CategoryController extends Controller
                 ]);
 
                 $notification = array(
-                  'message' => 'Category Updated without Image Successfully',
+                'message' => 'Category Updated without Image Successfully',
                     'alert-type' =>'success'
                 );
 
@@ -134,7 +134,7 @@ class CategoryController extends Controller
         ]);
 
         $notification = array(
-          'message' => 'SubCategory Added Successfully',
+        'message' => 'SubCategory Added Successfully',
             'alert-type' =>'success'
         );
 

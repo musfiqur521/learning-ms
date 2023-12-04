@@ -73,7 +73,7 @@ Route::controller(CategoryController::class)->group(function(){
 
     Route::get('/edit/subcategory/{id}','EditSubCategory')->name('edit.subcategory');
 
-    Route::post('/update/category','UpdateCategory')->name('update.category');
+    Route::post('/update/Subcategory','UpdateSubCategory')->name('update.category');
 
     Route::get('/delete/category/{id}','DeleteCategory')->name('delete.category');
 

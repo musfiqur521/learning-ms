@@ -25,18 +25,20 @@
         <div class="card-body p-4">
             <h5 class="mb-4">Edit SubCategory</h5>
 
-            <form id="myForm" action="{{ route('store.category') }}" method="post" class="row g-3" enctype="multipart/form-data">
+            <form id="myForm" action="{{ route('update.category') }}" method="post" class="row g-3" enctype="multipart/form-data">
                 @csrf
 
+                <input type="hidden" name="id" value="{{ $subcategory->id }}">
                 <div class="form-group col-md-6">
                     <label for="input1" class="form-label">Category Name</label>
                     <select name="category_id" class="form-select mb-3" aria-label="Default select example">
 
                         <option selected="" disabled>Open this select menu</option>
+
                         @foreach ($category as $cat)
 
 
-                        <option value="{{ $cat->id }}">{{ $cat->category_name }}</option>
+                        <option value="{{ $cat->id }}" {{ $cat->id == $subcategory->category_id ? 'selected' : '' }}>{{ $cat->category_name }}</option>
                         @endforeach
 
                     </select>
