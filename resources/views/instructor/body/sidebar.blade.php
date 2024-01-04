@@ -84,5 +84,6 @@
             </a>
         </li>
     </ul>
+    </div>
     <!--end navigation-->
 </div>

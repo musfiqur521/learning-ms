@@ -18,7 +18,7 @@
         <div class="ms-auto">
             <div class="btn-group">
 
-                <a href="{{ route('add.category') }}" class="btn btn-primary px-5">Add SubCategory</a>
+                <a href="{{ route('add.subcategory') }}" class="btn btn-primary px-5">Add SubCategory</a>
             </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                                 <td>
                                     <a href="{{ route('edit.subcategory',$item->id) }}" class="btn btn-info px-5">Edit</a>
 
-                                    <a href="{{ route('delete.category',$item->id) }}" class="btn btn-danger px-5" id="delete">Delete</a>
+                                    <a href="{{ route('delete.subcategory',$item->id) }}" class="btn btn-danger px-5" id="delete">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
