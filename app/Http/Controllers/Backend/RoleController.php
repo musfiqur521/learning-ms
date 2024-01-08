@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
+use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Permission;
 
 class RoleController extends Controller
@@ -86,5 +87,46 @@ class RoleController extends Controller
         );
 
         return redirect()->route('all.roles')->with($notification);
+    }// End Method
+
+    public function EditRoles($id){
+        $roles = Role::find($id);
+        return view('admin.backend.pages.roles.edit_roles', compact('roles'));
+    }// End Method
+
+    public function UpdateRoles(Request $request){
+        $role_id = $request->id;
+
+        Role::find($role_id)->update([
+            'name' => $request->name,
+        ]);
+
+        $notification = array(
+            'message' => 'Role Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.roles')->with($notification);
+    }// End Method
+
+    public function DeleteRoles($id){
+        Role::find($id)->delete();
+
+        $notification = array(
+            'message' => 'Role Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }// End Method
+
+
+    ////// Add Roles Permission All Methods ///////
+    public function AddRolesPermission(){
+
+        $roles = Role::all();
+        $permission_groups = User::getpermissionGroups();
+
+        return view('admin.backend.pages.rolesetup.add_roles_permission', compact('roles','permission_groups'));
     }// End Method
 }
