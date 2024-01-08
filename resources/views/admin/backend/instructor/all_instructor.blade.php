@@ -1,5 +1,6 @@
 @extends('admin.admin_dashboard')
 @section('admin')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <style>
     .large-checkbox {
@@ -64,7 +65,7 @@
 
                             <td>
                                 <div class="form-check-danger form-check form-switch">
-                                    <input class="form-check-input large-checkbox" type="checkbox" id="flexSwitchCheckedDanger" checked="">
+                                    <input class="form-check-input status-toggle large-checkbox" type="checkbox" id="flexSwitchCheckedDanger" data-user-id="{{ $item->id }}" {{ $item->status ? 'checked' : ''}}>
                                     <label class="form-check-label" for="flexSwitchCheckedDanger"></label>
 
                                 </div>
@@ -79,6 +80,30 @@
     </div>
 
 </div>
+<script>
+    $(document).ready(function() {
+        $('.status-toggle').on('change', function() {
+            var userId = $(this).data('user-id');
+            var isChecked = $(this).is(':checked');
 
+            // send on ajax request to update status
+            $.ajax({
+                method: "POST",
+                url: "{{ route('update.user.status') }}",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    user_id: userId,
+                    is_checked: isChecked ? 1 : 0
+                },
+                success: function(response) {
+                    toastr.success(response.message);
+                },
+                error: function(){
+
+                }
+            });
+        });
+    });
+</script>
 
 @endsection
