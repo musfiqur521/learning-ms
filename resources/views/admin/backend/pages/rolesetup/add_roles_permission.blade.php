@@ -3,6 +3,12 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
+<style>
+    .form-check-input {
+        text-transform: capitalize;
+    }
+</style>
+
 
 <div class="page-content">
     <!--breadcrumb-->
@@ -40,8 +46,8 @@
                 </div>
 
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">Permission All</label>
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckMain">
+                    <label class="form-check-label" for="flexCheckMain">Permission All</label>
                 </div>
 
 <hr>
@@ -56,10 +62,18 @@
     </div>
 
     <div class="col-9">
+        @php
+        $permissions = App\Models\User::getpermissionsByGroupName($group->group_name);
+        @endphp
+        @foreach ($permissions as $permission)
+
+
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">Permission All</label>
+            <input class="form-check-input" type="checkbox" name="permission[]" value="{{ $permission->id }}" id="checkDefault{{ $permission->id }}">
+            <label class="form-check-label" for="checkDefault{{ $permission->id }}">{{ $permission->name }}</label>
         </div>
+        @endforeach
+        <br>
     </div>
 </div>
 {{-- // end row --}}
@@ -77,4 +91,18 @@
     </div>
 
 </div>
+
+            {{-- All Selected Permission --}}
+<script>
+    $('#flexCheckMain').click(function () {
+        if ($(this).is(':checked')) {
+            // alert('checked');
+            $('input:checkbox').prop('checked', true);
+        } else {
+            // alert('unchecked');
+            $('input:checkbox').prop('checked', false);
+        }
+    });
+</script>
+
 @endsection
