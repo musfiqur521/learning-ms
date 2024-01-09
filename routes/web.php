@@ -122,6 +122,7 @@ Route::controller(RoleController::class)->group(function(){
 
     Route::post('/role/permission/store','RolePermissionStore')->name('role.permission.store');
     Route::get('all/role/permission','AllRolePermissionStore')->name('all.roles.permission');
+    Route::get('admin/edit/roles/{id}','AdminEditRoles')->name('admin.edit.roles');
 
 });
 

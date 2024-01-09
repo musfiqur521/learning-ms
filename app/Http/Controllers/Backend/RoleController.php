@@ -148,11 +148,19 @@ class RoleController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->route('all.roles')->with($notification);
+        return redirect()->route('all.roles.permission')->with($notification);
     }// End Method
 
     public function AllRolePermissionStore(Request $request){
         $roles = Role::all();
         return view('admin.backend.pages.rolesetup.all_role_permission', compact('roles'));
+    }// End Method
+
+    public function AdminEditRoles($id){
+        $role = Role::find($id);
+        $permissions = Permission::all();
+        $permission_groups = User::getpermissionGroups();
+
+        return view('admin.backend.pages.rolesetup.edit_roles_permission', compact('role', 'permission_groups', 'permissions'));
     }// End Method
 }

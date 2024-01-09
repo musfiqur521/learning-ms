@@ -47,13 +47,13 @@
 
                             <td>{{ $item->name }}</td>
                             <td>
-                                @foreach ($item->permissions as $permission)
-                                <span class="badge bg-danger">{{ $premission->name }}</span>
+                                @foreach ($item->permissions as $prem)
+                                <span class="badge bg-danger">{{ $prem->name }}</span>
                                 @endforeach
                             </td>
 
                             <td>
-                                <a href="{{ route('edit.roles',$item->id) }}" class="btn btn-info px-5">Edit</a>
+                                <a href="{{ route('admin.edit.roles',$item->id) }}" class="btn btn-info px-5">Edit</a>
 
                                 <a href="{{ route('delete.roles',$item->id) }}" class="btn btn-danger px-5" id="delete">Delete</a>
                             </td>
