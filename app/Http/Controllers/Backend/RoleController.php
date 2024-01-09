@@ -163,4 +163,34 @@ class RoleController extends Controller
 
         return view('admin.backend.pages.rolesetup.edit_roles_permission', compact('role', 'permission_groups', 'permissions'));
     }// End Method
+
+    public function AdminUpdateRoles(Request $request, $id){
+        $role = Role::find($id);
+        $permissions = $request->permission;
+
+        if (!empty($permissions)){
+            $role->syncPermissions($permissions);
+            }
+
+        $notification = array(
+            'message' => 'Role Permission Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.roles.permission')->with($notification);
+    }// End Method
+
+    public function AdminDeleteRoles($id){
+        $role = Role::find($id);
+        if (!is_null($role)){
+            $role->delete();
+        }
+
+        $notification = array(
+            'message' => 'Role Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    }// End Method
 }
